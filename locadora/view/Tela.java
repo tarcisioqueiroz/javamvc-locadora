@@ -3,6 +3,7 @@ package view;
 import layouts.SpringUtilities;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Tela extends JFrame {
     JLabel loginLabel, senhaLabel;
@@ -15,7 +16,7 @@ public class Tela extends JFrame {
         super("Login");
         setSize(400,200);
         setResizable(false);
-        setLayout(new SpringLayout());
+        setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -28,14 +29,22 @@ public class Tela extends JFrame {
         signInButton = new JButton("Sign In");
         signOutButton = new JButton("Sign Out");
 
-        fieldPanel = new JPanel();
-        buttonPanel = new JPanel();
+        fieldPanel = new JPanel(new SpringLayout());
+        buttonPanel = new JPanel(new SpringLayout());
 
-        fieldPanel.add(loginLabel, loginField);
-        buttonPanel.add(signInButton,signOutButton);
+        fieldPanel.add(loginLabel);
+        fieldPanel.add(loginField);
+        fieldPanel.add(senhaLabel);
+        fieldPanel.add(senhaField);
 
+        buttonPanel.add(signInButton);
+        buttonPanel.add(signOutButton);
 
+        SpringUtilities.makeGrid(fieldPanel,2,2,5,5,5,5);
+        SpringUtilities.makeGrid(buttonPanel,1,2,5,5,5,5);
 
+        add(fieldPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.CENTER);
 
         setVisible(true);
     }
