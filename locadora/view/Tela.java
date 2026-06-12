@@ -21,8 +21,8 @@ public class Tela extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        loginLabel = new JLabel("Login:");
-        senhaLabel = new JLabel("Senha:");
+        loginLabel = new JLabel("Login:", SwingConstants.RIGHT);
+        senhaLabel = new JLabel("<html> <body style='color:red;'>Password muito grande<br> tente novamente</body></html>:", SwingConstants.RIGHT);
 
         loginField = new JTextField(10);
         senhaField = new JPasswordField(10);
@@ -30,7 +30,7 @@ public class Tela extends JFrame {
         signInButton = new JButton("Sign In");
         signOutButton = new JButton("Sign Out");
 
-        fieldPanel = new JPanel();
+        fieldPanel = new JPanel(new SpringLayout());
         buttonPanel = new JPanel();
 
         fieldPanel.add(loginLabel);
@@ -41,7 +41,7 @@ public class Tela extends JFrame {
         buttonPanel.add(signInButton);
         buttonPanel.add(signOutButton);
 
-//        SpringUtilities.makeCompactGrid(fieldPanel,2,2,5,5,5,5);
+        SpringUtilities.makeCompactGrid(fieldPanel,2,2,5,5,10,10);
 //        SpringUtilities.makeCompactGrid(buttonPanel,1,2,5,5,5,5);
 
         add(fieldPanel, BorderLayout.PAGE_START);
