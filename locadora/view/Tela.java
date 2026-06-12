@@ -15,8 +15,9 @@ public class Tela extends JFrame {
     public Tela(){
         super("Login");
         setSize(400,200);
+//        setMinimumSize(null);
         setResizable(false);
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(5,10));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -29,8 +30,8 @@ public class Tela extends JFrame {
         signInButton = new JButton("Sign In");
         signOutButton = new JButton("Sign Out");
 
-        fieldPanel = new JPanel(new SpringLayout());
-        buttonPanel = new JPanel(new SpringLayout());
+        fieldPanel = new JPanel();
+        buttonPanel = new JPanel();
 
         fieldPanel.add(loginLabel);
         fieldPanel.add(loginField);
@@ -40,10 +41,10 @@ public class Tela extends JFrame {
         buttonPanel.add(signInButton);
         buttonPanel.add(signOutButton);
 
-        SpringUtilities.makeGrid(fieldPanel,2,2,5,5,5,5);
-        SpringUtilities.makeGrid(buttonPanel,1,2,5,5,5,5);
+//        SpringUtilities.makeCompactGrid(fieldPanel,2,2,5,5,5,5);
+//        SpringUtilities.makeCompactGrid(buttonPanel,1,2,5,5,5,5);
 
-        add(fieldPanel, BorderLayout.CENTER);
+        add(fieldPanel, BorderLayout.PAGE_START);
         add(buttonPanel, BorderLayout.CENTER);
 
         setVisible(true);
